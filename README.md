@@ -674,7 +674,7 @@ The project is designed to demonstrate practical application of Programming Fund
 
 The repository contains the project's formal proposal and design documentation.
 
-📄 **[Read the Complete Project Proposal →](docs/proposal.md)**
+📄 **[Read the Complete Project Proposal →](docs/Proposal.md)**
 
 The proposal covers:
 
