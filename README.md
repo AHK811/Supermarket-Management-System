@@ -22,7 +22,7 @@
 
 <br>
 
-[📋 Proposal](docs/proposal.md) · [📁 Source Code](src/) · [🧪 Tests](tests/) · [📖 Documentation](docs/)
+[📋 Proposal](docs/proposal.md)  ·  [📁 Source Code](src/)  ·  [📖 Documentation](docs/)
 
 </div>
 
@@ -508,7 +508,7 @@ This demonstrates fundamental file-handling concepts while keeping the project l
 # 🛠️ Technology Stack
 
 | Technology              | Purpose                        |
-|        -- |            |
+|                         |                                |
 | **C++17+**              | Core programming language      |
 | **STL**                 | Data structures and algorithms |
 | `vector`                | Dynamic collections            |
