@@ -26,7 +26,7 @@
 
 </div>
 
----
+ 
 
 ## 📌 About the Project
 
@@ -60,7 +60,7 @@ Customer Checkout
 
 The result is a small but complete retail-management ecosystem implemented using fundamental C++ programming concepts.
 
----
+ 
 
 ## 🎯 Problem Statement
 
@@ -78,7 +78,7 @@ Small-scale supermarket operations often rely on disconnected processes for:
 This separation creates several practical problems:
 
 | Problem                                | Consequence                    |
-| -------------------------------------- | ------------------------------ |
+|             -- |            |
 | Manual inventory tracking              | Incorrect stock counts         |
 | Delayed stockout detection             | Products become unavailable    |
 | Separate billing and inventory records | Data inconsistency             |
@@ -93,7 +93,7 @@ This separation creates several practical problems:
 📄 **Full problem statement, objectives, scope, and design rationale:**
 **[Read the Project Proposal →](docs/proposal.md)**
 
----
+ 
 
 # ✨ Key Features
 
@@ -258,7 +258,7 @@ Logs are maintained as append-only records.
 </tr>
 </table>
 
----
+ 
 
 # 🧠 System Architecture
 
@@ -320,7 +320,7 @@ SMS follows a modular architecture where each subsystem has a focused responsibi
              └────────┘ └────────┘ └─────────┘
 ```
 
----
+ 
 
 # 🗂️ Project Structure
 
@@ -396,14 +396,14 @@ supermarket-management-system/
 └── README.md
 ```
 
----
+ 
 
 # 👥 User Roles
 
 SMS implements permission-based access through three primary roles.
 
 | Role           | Access                                                                     |
-| -------------- | -------------------------------------------------------------------------- |
+|     -- |                         -- |
 | 👑 **Admin**   | Full system access, users, pricing, suppliers, reports, audit logs         |
 | 📦 **Manager** | Inventory, suppliers, purchase orders, discounts, reports, refund approval |
 | 💳 **Cashier** | Checkout, permitted returns, stock lookup                                  |
@@ -429,7 +429,7 @@ SMS implements permission-based access through three primary roles.
            Access     Access     Access
 ```
 
----
+ 
 
 # 🧾 Checkout Workflow
 
@@ -477,7 +477,7 @@ A typical supermarket transaction follows this flow:
 └─────────────────┘
 ```
 
----
+ 
 
 # 💾 Data Persistence
 
@@ -503,12 +503,12 @@ Application
 
 This demonstrates fundamental file-handling concepts while keeping the project lightweight and dependency-free.
 
----
+ 
 
 # 🛠️ Technology Stack
 
 | Technology              | Purpose                        |
-| ----------------------- | ------------------------------ |
+|        -- |            |
 | **C++17+**              | Core programming language      |
 | **STL**                 | Data structures and algorithms |
 | `vector`                | Dynamic collections            |
@@ -551,7 +551,7 @@ This demonstrates fundamental file-handling concepts while keeping the project l
                                       PERSISTENT STORAGE
 ```
 
----
+ 
 
 # 📈 Reporting
 
@@ -568,7 +568,7 @@ The reporting subsystem provides information derived from transaction records ra
 
 This keeps reporting connected to the same transaction data used by checkout.
 
----
+ 
 
 # 🔄 Returns & Inventory Integrity
 
@@ -594,7 +594,7 @@ Inventory Restore   Loyalty Reversal
 
 This prevents the inventory, financial, and loyalty systems from drifting apart.
 
----
+ 
 
 # 🧪 Testing
 
@@ -639,12 +639,12 @@ refactor: separate file persistence
 test: add return transaction cases
 ```
 
----
+ 
 
 # 📚 Course Context
 
 | Field            | Details                         |
-| ---------------- | ------------------------------- |
+|      - |           - |
 | **University**   | FAST–NUCES                      |
 | **Campus**       | Karachi                         |
 | **Course**       | Programming Fundamentals        |
@@ -668,7 +668,7 @@ The project is designed to demonstrate practical application of Programming Fund
 * Modular programming
 * Basic software architecture
 
----
+ 
 
 # 📋 Project Proposal
 
@@ -692,12 +692,12 @@ The proposal covers:
 
 > **The proposal and implementation are intended to remain synchronized as development progresses.**
 
----
+ 
 
 # 👨‍💻 Team
 
 | Name    | Roll Number | Responsibility              |
-| ------- | ----------- | --------------------------- |
+|   - |    -- |           |
 | **TBD** | **TBD**     | Project Lead / Development  |
 | **TBD** | **TBD**     | Development                 |
 | **TBD** | **TBD**     | Development / Documentation |
@@ -728,7 +728,7 @@ Loyalty Update
 Sales Report
 ```
 
----
+ 
 
 # 🎓 Academic Purpose
 
@@ -736,7 +736,7 @@ This project is developed for academic purposes as part of the **Programming Fun
 
 It is intended to demonstrate how fundamental programming concepts can be combined to create a complete, interconnected software system rather than isolated programming exercises.
 
----
+ 
 
 <div align="center">
 
