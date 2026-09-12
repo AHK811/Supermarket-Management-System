@@ -78,7 +78,7 @@ Small-scale supermarket operations often rely on disconnected processes for:
 This separation creates several practical problems:
 
 | Problem                                | Consequence                    |
-|             -- |            |
+|----------------------------------------|--------------------------------|
 | Manual inventory tracking              | Incorrect stock counts         |
 | Delayed stockout detection             | Products become unavailable    |
 | Separate billing and inventory records | Data inconsistency             |
@@ -275,7 +275,7 @@ SMS follows a modular architecture where each subsystem has a focused responsibi
                     ▼               ▼               ▼
               ┌──────────┐   ┌───────────┐   ┌──────────┐
               │   Auth   │   │ Inventory │   │ Billing  │
-              └──────────┘   └───────────┘   └──────────┘
+              └──────────��   └───────────┘   └──────────┘
                     │               │               │
                     │               ▼               ▼
                     │         ┌───────────┐   ┌───────────┐
@@ -403,7 +403,7 @@ supermarket-management-system/
 SMS implements permission-based access through three primary roles.
 
 | Role           | Access                                                                     |
-|     -- |                         -- |
+|----------------|----------------------------------------------------------------------------|
 | 👑 **Admin**   | Full system access, users, pricing, suppliers, reports, audit logs         |
 | 📦 **Manager** | Inventory, suppliers, purchase orders, discounts, reports, refund approval |
 | 💳 **Cashier** | Checkout, permitted returns, stock lookup                                  |
@@ -508,7 +508,7 @@ This demonstrates fundamental file-handling concepts while keeping the project l
 # 🛠️ Technology Stack
 
 | Technology              | Purpose                        |
-|                         |                                |
+|-------------------------|--------------------------------|
 | **C++17+**              | Core programming language      |
 | **STL**                 | Data structures and algorithms |
 | `vector`                | Dynamic collections            |
@@ -644,7 +644,7 @@ test: add return transaction cases
 # 📚 Course Context
 
 | Field            | Details                         |
-|      - |           - |
+|------------------|----------------------------------|
 | **University**   | FAST–NUCES                      |
 | **Campus**       | Karachi                         |
 | **Course**       | Programming Fundamentals        |
@@ -697,7 +697,7 @@ The proposal covers:
 # 👨‍💻 Team
 
 | Name    | Roll Number | Responsibility              |
-|   - |    -- |           |
+|---------|-------------|-----------------------------| 
 | **TBD** | **TBD**     | Project Lead / Development  |
 | **TBD** | **TBD**     | Development                 |
 | **TBD** | **TBD**     | Development / Documentation |
