@@ -22,7 +22,7 @@
 
 <br>
 
-[📋 Proposal](docs/proposal.md)  ·  [📁 Source Code](src/)  ·  [📖 Documentation](docs/)
+[📋 Proposal](docs/Proposal.md)  ·  [📁 Source Code](src/)  ·  [📖 Documentation](docs/)
 
 </div>
 
