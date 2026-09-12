@@ -91,7 +91,7 @@ This separation creates several practical problems:
 **SMS addresses these problems by connecting the entire workflow through a common data model.**
 
 📄 **Full problem statement, objectives, scope, and design rationale:**
-**[Read the Project Proposal →](docs/proposal.md)**
+**[Read the Project Proposal →](docs/Proposal.md)**
 
  
 
