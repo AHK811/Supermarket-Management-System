@@ -696,11 +696,11 @@ The proposal covers:
 
 # 👨‍💻 Team
 
-| Name    | Roll Number | Responsibility              |
-|---------|-------------|-----------------------------| 
-| **TBD** | **TBD**     | Project Lead / Development  |
-| **TBD** | **TBD**     | Development                 |
-| **TBD** | **TBD**     | Development / Documentation |
+| Name                  | Roll Number | Responsibility              |
+|-----------------------|-------------|-----------------------------| 
+|ABDUL HANNAN KASHIF    |  26K-3018   | Project Lead / Architecture |
+|AZAAN MEHDI            |  26K-3000   | Sub leading  / Programming  |
+|MUHAMMAD BILAL IMTIAZ  |  26K-3020   | Sub Leading  / Programming  |
 
 
 
