@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/fast-nuces-logo.png" alt="FAST–NUCES" width="180">
+<img src="download.png" alt="FAST–NUCES" width="180">
 
 # 🛒 Supermarket Management System
 
@@ -520,97 +520,6 @@ This demonstrates fundamental file-handling concepts while keeping the project l
 | **Git**                 | Version control                |
 | **GitHub**              | Repository and collaboration   |
 
----
-
-# 🚀 Getting Started
-
-## Prerequisites
-
-Install:
-
-* C++ compiler supporting C++17
-* GCC 9+ recommended
-* Git
-* `make` — optional
-
-Verify your compiler:
-
-```bash
-g++ --version
-```
-
----
-
-## Clone the Repository
-
-```bash
-git clone https://github.com/<your-username>/supermarket-management-system.git
-cd supermarket-management-system
-```
-
----
-
-## Build with Make
-
-```bash
-make
-```
-
----
-
-## Build Manually
-
-### Linux / macOS
-
-```bash
-g++ -std=c++17 -Wall -Wextra \
--o sms \
-src/main.cpp \
-src/models/*.cpp \
-src/inventory/*.cpp \
-src/billing/*.cpp \
-src/loyalty/*.cpp \
-src/suppliers/*.cpp \
-src/reports/*.cpp \
-src/auth/*.cpp \
-src/storage/*.cpp
-```
-
-### Windows PowerShell
-
-```powershell
-g++ -std=c++17 -Wall -Wextra `
--o sms.exe `
-src/main.cpp `
-src/models/*.cpp `
-src/inventory/*.cpp `
-src/billing/*.cpp `
-src/loyalty/*.cpp `
-src/suppliers/*.cpp `
-src/reports/*.cpp `
-src/auth/*.cpp `
-src/storage/*.cpp
-```
-
----
-
-## ▶️ Run
-
-### Linux / macOS
-
-```bash
-./sms
-```
-
-### Windows
-
-```powershell
-.\sms.exe
-```
-
-On first execution, the application initializes the required data files.
-
----
 
 # 📊 Functional Modules
 
@@ -715,23 +624,6 @@ Test scenarios include:
 * Report generation
 * File persistence
 
----
-
-# 🌳 Development Workflow
-
-The project follows a modular Git workflow.
-
-```bash
-git checkout -b feature/inventory-module
-```
-
-Make changes, test them, then:
-
-```bash
-git add .
-git commit -m "Add inventory management module"
-git push origin feature/inventory-module
-```
 
 Feature branches should be merged into `main` through review.
 
@@ -810,52 +702,7 @@ The proposal covers:
 | **TBD** | **TBD**     | Development                 |
 | **TBD** | **TBD**     | Development / Documentation |
 
----
 
-# 🗺️ Roadmap
-
-### Phase 1 — Foundation
-
-* [x] Repository setup
-* [x] Project architecture
-* [x] Proposal
-* [ ] Core data models
-* [ ] File persistence
-
-### Phase 2 — Core Operations
-
-* [ ] Authentication
-* [ ] Role-based access
-* [ ] Inventory management
-* [ ] Product search
-* [ ] Supplier management
-
-### Phase 3 — Transactions
-
-* [ ] Shopping cart
-* [ ] Checkout
-* [ ] Billing
-* [ ] Discounts
-* [ ] Returns
-* [ ] Refunds
-
-### Phase 4 — Intelligence & Reporting
-
-* [ ] Loyalty system
-* [ ] Low-stock detection
-* [ ] Purchase-order generation
-* [ ] Sales reports
-* [ ] Audit logging
-
-### Phase 5 — Finalization
-
-* [ ] Full integration
-* [ ] Testing
-* [ ] Sample data
-* [ ] Documentation
-* [ ] Final demonstration
-
----
 
 # 📸 Demo
 
