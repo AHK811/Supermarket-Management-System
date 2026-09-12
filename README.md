@@ -1,141 +1,908 @@
-# Supermarket Management System (SMS)
+<div align="center">
 
-A console-based Supermarket Management System built in C++ as a Programming Fundamentals course project at FAST–NUCES, Karachi. The system integrates inventory management, checkout and billing, customer loyalty tracking, supplier restocking, and sales reporting around a single, consistent set of data records.
+<img src="assets/fast-nuces-logo.png" alt="FAST–NUCES" width="180">
 
-## Overview
+# 🛒 Supermarket Management System
 
-Most small-scale supermarket software treats billing, inventory, and reporting as separate, loosely connected processes — leading to delayed stockout detection, undifferentiated staff access, manual reporting, and reactive supplier restocking. This project addresses those gaps directly by building every module (checkout, inventory, loyalty, suppliers, reports) against the same underlying product, customer, transaction, and supplier records.
+### A Modular Console-Based Retail Management System in C++
 
-See [`docs/proposal.md`](docs/proposal.md) (or the submitted proposal document) for the full problem statement and design rationale.
+**Programming Fundamentals — FAST–NUCES Karachi**
 
-## Features
+<br>
 
-- **Role-based access** — Admin, Manager, and Cashier roles with permission-gated operations
-- **Inventory management** — add/update/remove/search products, category and supplier association, batch-level expiry tracking
-- **Real-time low-stock alerts** — configurable thresholds checked at startup and at checkout
-- **Checkout & billing** — cart-based checkout with itemized receipts (price, quantity, discount, tax)
-- **Customer & loyalty management** — cumulative spend tracking with automatic point/tier issuance
-- **Discounts & promotions** — percentage/fixed discounts and promotional codes
-- **Returns & refunds** — transaction-linked returns with inventory and loyalty reversal
-- **Reporting** — on-request daily/weekly/monthly sales reports, top-selling and slow-moving items
-- **Supplier & purchase orders** — automatic purchase-order drafts on reorder threshold breach
-- **Audit logging** — append-only log of privileged actions with timestamp and user attribution
-- **File-based persistence** — all records survive across sessions
+[![C++](https://img.shields.io/badge/C%2B%2B-17%2B-00599C?style=for-the-badge\&logo=cplusplus\&logoColor=white)](https://isocpp.org/)
+[![GCC](https://img.shields.io/badge/GCC-9%2B-5C2D91?style=for-the-badge\&logo=gnu\&logoColor=white)](https://gcc.gnu.org/)
+[![Git](https://img.shields.io/badge/Git-Version%20Control-F05032?style=for-the-badge\&logo=git\&logoColor=white)](https://git-scm.com/)
+[![FAST–NUCES](https://img.shields.io/badge/FAST–NUCES-Karachi-111111?style=for-the-badge)](https://www.nu.edu.pk/)
+[![Status](https://img.shields.io/badge/Status-In%20Development-F4A261?style=for-the-badge)]()
 
-## Tech Stack
+<br>
 
-| Component | Choice |
-|---|---|
-| Language | C++ (C++17 or later) |
-| Data structures | STL — `vector`, `map`/`unordered_map`, `queue` |
-| Persistence | File I/O via `fstream` (structured text/binary records) |
-| Build | GCC/g++, Makefile |
-| Version control | Git / GitHub |
-| OS support | Cross-platform (Windows, Linux, macOS) |
+**Inventory • Billing • Loyalty • Suppliers • Reporting • Access Control**
 
-## Project Structure
+<br>
 
+[📋 Proposal](docs/proposal.md) · [📁 Source Code](src/) · [🧪 Tests](tests/) · [📖 Documentation](docs/)
+
+</div>
+
+---
+
+## 📌 About the Project
+
+The **Supermarket Management System (SMS)** is a modular, console-based retail management application developed in **C++17** as a Programming Fundamentals course project at **FAST–NUCES, Karachi**.
+
+The system is designed around a central principle:
+
+> **Every major supermarket operation should work with the same consistent set of records.**
+
+Instead of treating billing, inventory, customers, suppliers, and reporting as isolated systems, SMS connects them through shared product, customer, transaction, supplier, and user records.
+
+This allows an action in one subsystem to immediately affect the others.
+
+For example:
+
+```text
+Customer Checkout
+       │
+       ├──► Transaction Record
+       │
+       ├──► Inventory Updated
+       │
+       ├──► Loyalty Points Updated
+       │
+       ├──► Sales Report Updated
+       │
+       └──► Low-Stock Check
+                    │
+                    └──► Purchase Order Draft
 ```
+
+The result is a small but complete retail-management ecosystem implemented using fundamental C++ programming concepts.
+
+---
+
+## 🎯 Problem Statement
+
+Small-scale supermarket operations often rely on disconnected processes for:
+
+* Inventory management
+* Customer billing
+* Stock monitoring
+* Supplier restocking
+* Loyalty programs
+* Sales reporting
+* Returns and refunds
+* Employee access control
+
+This separation creates several practical problems:
+
+| Problem                                | Consequence                    |
+| -------------------------------------- | ------------------------------ |
+| Manual inventory tracking              | Incorrect stock counts         |
+| Delayed stockout detection             | Products become unavailable    |
+| Separate billing and inventory records | Data inconsistency             |
+| No role-based access                   | Unauthorized operations        |
+| Manual customer tracking               | Loyalty information is lost    |
+| Reactive supplier ordering             | Restocking happens too late    |
+| Manual reporting                       | Slow decision-making           |
+| Poor transaction history               | Difficult refunds and auditing |
+
+**SMS addresses these problems by connecting the entire workflow through a common data model.**
+
+📄 **Full problem statement, objectives, scope, and design rationale:**
+**[Read the Project Proposal →](docs/proposal.md)**
+
+---
+
+# ✨ Key Features
+
+<table>
+<tr>
+<td width="50%">
+
+### 🔐 Role-Based Access
+
+Three operational roles with different permissions:
+
+* 👑 Admin
+* 📦 Manager
+* 💳 Cashier
+
+Sensitive operations are restricted according to the authenticated user's role.
+
+</td>
+
+<td width="50%">
+
+### 📦 Inventory Management
+
+Complete product lifecycle management:
+
+* Add products
+* Update products
+* Remove products
+* Search products
+* Categories
+* Supplier association
+* Batch tracking
+* Expiry monitoring
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+### 🧾 Checkout & Billing
+
+Cart-based checkout with:
+
+* Product lookup
+* Quantity validation
+* Discounts
+* Tax calculation
+* Itemized receipts
+* Transaction records
+* Automatic inventory deduction
+
+</td>
+
+<td>
+
+### ⭐ Customer Loyalty
+
+Customer accounts maintain:
+
+* Purchase history
+* Cumulative spending
+* Loyalty points
+* Loyalty tiers
+* Automatic point issuance
+* Return-based point reversal
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+### 🏷️ Discounts & Promotions
+
+Flexible promotional system supporting:
+
+* Percentage discounts
+* Fixed-value discounts
+* Promotional codes
+* Transaction-level calculations
+
+</td>
+
+<td>
+
+### 🔄 Returns & Refunds
+
+Transaction-linked returns provide:
+
+* Original transaction verification
+* Inventory restoration
+* Refund calculation
+* Loyalty reversal
+* Role-based refund approval
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+### 🚨 Low-Stock Monitoring
+
+The system continuously checks configurable stock thresholds.
+
+When inventory falls below the reorder level:
+
+```text
+Low Stock
+   ↓
+Alert
+   ↓
+Reorder Threshold
+   ↓
+Purchase Order Draft
+```
+
+</td>
+
+<td>
+
+### 📊 Sales Reporting
+
+Generate reports for:
+
+* Daily sales
+* Weekly sales
+* Monthly sales
+* Top-selling products
+* Slow-moving products
+* Revenue analysis
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+### 🚚 Supplier Management
+
+Supplier records are connected to inventory and purchasing.
+
+The system can create purchase-order drafts when products reach their reorder threshold.
+
+</td>
+
+<td>
+
+### 📝 Audit Logging
+
+Privileged operations are recorded with:
+
+* User identity
+* Action
+* Timestamp
+* Relevant operation details
+
+Logs are maintained as append-only records.
+
+</td>
+</tr>
+</table>
+
+---
+
+# 🧠 System Architecture
+
+SMS follows a modular architecture where each subsystem has a focused responsibility.
+
+```text
+                         ┌──────────────────────┐
+                         │       main.cpp       │
+                         │   Application Layer  │
+                         └──────────┬───────────┘
+                                    │
+                    ┌───────────────┼───────────────┐
+                    │               │               │
+                    ▼               ▼               ▼
+              ┌──────────┐   ┌───────────┐   ┌──────────┐
+              │   Auth   │   │ Inventory │   │ Billing  │
+              └──────────┘   └───────────┘   └──────────┘
+                    │               │               │
+                    │               ▼               ▼
+                    │         ┌───────────┐   ┌───────────┐
+                    │         │ Suppliers │   │  Loyalty  │
+                    │         └───────────┘   └───────────┘
+                    │               │               │
+                    └───────────────┼───────────────┘
+                                    ▼
+                           ┌─────────────────┐
+                           │    Reporting    │
+                           └────────┬────────┘
+                                    │
+                                    ▼
+                           ┌─────────────────┐
+                           │ File Persistence│
+                           │    fstream      │
+                           └─────────────────┘
+```
+
+### Core Data Flow
+
+```text
+                    ┌──────────────┐
+                    │   Product    │
+                    └──────┬───────┘
+                           │
+             ┌─────────────┼─────────────┐
+             ▼             ▼             ▼
+        ┌─────────┐   ┌──────────┐   ┌──────────┐
+        │Inventory│   │ Checkout │   │ Supplier │
+        └────┬────┘   └─────┬────┘   └────┬─────┘
+             │              │             │
+             │              ▼             │
+             │        ┌────────────┐       │
+             └───────►│Transaction │◄──────┘
+                      └─────┬──────┘
+                            │
+                 ┌──────────┼──────────┐
+                 ▼          ▼          ▼
+             ┌────────┐ ┌────────┐ ┌─────────┐
+             │Loyalty │ │Reports │ │ Audit   │
+             └────────┘ └────────┘ └─────────┘
+```
+
+---
+
+# 🗂️ Project Structure
+
+```text
 supermarket-management-system/
+│
+├── assets/
+│   └── fast-nuces-logo.png
+│
 ├── src/
-│   ├── main.cpp                # Entry point — menu loop, role-based dispatch
+│   ├── main.cpp
+│   │
 │   ├── models/
-│   │   ├── Product.cpp / .h
-│   │   ├── Customer.cpp / .h
-│   │   ├── Transaction.cpp / .h
-│   │   ├── Supplier.cpp / .h
-│   │   └── User.cpp / .h       # Base class; Admin, Manager, Cashier derive from this
+│   │   ├── Product.cpp
+│   │   ├── Product.h
+│   │   ├── Customer.cpp
+│   │   ├── Customer.h
+│   │   ├── Transaction.cpp
+│   │   ├── Transaction.h
+│   │   ├── Supplier.cpp
+│   │   ├── Supplier.h
+│   │   ├── User.cpp
+│   │   └── User.h
+│   │
 │   ├── inventory/
-│   │   ├── InventoryManager.cpp / .h
-│   │   └── ExpiryMonitor.cpp / .h
+│   │   ├── InventoryManager.cpp
+│   │   ├── InventoryManager.h
+│   │   ├── ExpiryMonitor.cpp
+│   │   └── ExpiryMonitor.h
+│   │
 │   ├── billing/
-│   │   ├── Checkout.cpp / .h
-│   │   └── ReturnsManager.cpp / .h
+│   │   ├── Checkout.cpp
+│   │   ├── Checkout.h
+│   │   ├── ReturnsManager.cpp
+│   │   └── ReturnsManager.h
+│   │
 │   ├── loyalty/
-│   │   └── LoyaltyLedger.cpp / .h
+│   │   ├── LoyaltyLedger.cpp
+│   │   └── LoyaltyLedger.h
+│   │
 │   ├── suppliers/
-│   │   └── PurchaseOrderManager.cpp / .h
+│   │   ├── PurchaseOrderManager.cpp
+│   │   └── PurchaseOrderManager.h
+│   │
 │   ├── reports/
-│   │   └── ReportGenerator.cpp / .h
+│   │   ├── ReportGenerator.cpp
+│   │   └── ReportGenerator.h
+│   │
 │   ├── auth/
-│   │   └── AuthManager.cpp / .h
+│   │   ├── AuthManager.cpp
+│   │   └── AuthManager.h
+│   │
 │   └── storage/
-│       └── FileHandler.cpp / .h   # Read/write for all persisted records
-├── data/                        # Persisted data files (products.txt, customers.txt, etc.)
+│       ├── FileHandler.cpp
+│       └── FileHandler.h
+│
+├── data/
+│   ├── products.txt
+│   ├── customers.txt
+│   ├── transactions.txt
+│   ├── suppliers.txt
+│   ├── users.txt
+│   └── audit.log
+│
 ├── docs/
-│   └── proposal.md              # Project proposal / design document
-├── tests/                       # Manual test cases and sample data files
+│   └── proposal.md
+│
+├── tests/
+│   └── sample-data/
+│
 ├── Makefile
 ├── .gitignore
 └── README.md
 ```
 
-> The structure above reflects the intended modular design (each subsystem as its own class/component); files are added incrementally as development proceeds.
+---
 
-## Getting Started
+# 👥 User Roles
 
-### Prerequisites
+SMS implements permission-based access through three primary roles.
 
-- A C++ compiler supporting C++17 (GCC 9+ recommended)
-- `make` (optional, for the provided Makefile)
-- Git
+| Role           | Access                                                                     |
+| -------------- | -------------------------------------------------------------------------- |
+| 👑 **Admin**   | Full system access, users, pricing, suppliers, reports, audit logs         |
+| 📦 **Manager** | Inventory, suppliers, purchase orders, discounts, reports, refund approval |
+| 💳 **Cashier** | Checkout, permitted returns, stock lookup                                  |
 
-### Clone the repository
+### Permission Flow
+
+```text
+                 ┌─────────────┐
+                 │    Login    │
+                 └──────┬──────┘
+                        │
+                        ▼
+                ┌───────────────┐
+                │ Authentication│
+                └───────┬───────┘
+                        │
+              ┌─────────┼─────────┐
+              ▼         ▼         ▼
+           ADMIN     MANAGER    CASHIER
+              │         │         │
+              ▼         ▼         ▼
+           Full      Managed    Limited
+           Access     Access     Access
+```
+
+---
+
+# 🧾 Checkout Workflow
+
+A typical supermarket transaction follows this flow:
+
+```text
+┌───────────────┐
+│ Select Product│
+└───────┬───────┘
+        ▼
+┌───────────────┐
+│ Check Stock   │
+└───────┬───────┘
+        ▼
+┌───────────────┐
+│ Add to Cart   │
+└───────┬───────┘
+        ▼
+┌───────────────┐
+│ Apply Discount│
+└───────┬───────┘
+        ▼
+┌───────────────┐
+│ Calculate Tax │
+└───────┬───────┘
+        ▼
+┌───────────────┐
+│ Generate Bill │
+└───────┬───────┘
+        ▼
+┌────────────────┐
+│ Save Transaction│
+└───────┬────────┘
+        ▼
+┌────────────────┐
+│ Update Inventory│
+└───────┬────────┘
+        ▼
+┌────────────────┐
+│ Update Loyalty │
+└───────┬────────┘
+        ▼
+┌─────────────────┐
+│ Check Low Stock │
+└─────────────────┘
+```
+
+---
+
+# 💾 Data Persistence
+
+The application uses C++ file I/O through `fstream` for persistent storage.
+
+Data remains available after the program is closed.
+
+```text
+Application
+     │
+     ▼
+┌──────────────┐
+│ FileHandler  │
+└──────┬───────┘
+       │
+       ├──► products.txt
+       ├──► customers.txt
+       ├──► transactions.txt
+       ├──► suppliers.txt
+       ├──► users.txt
+       └──► audit.log
+```
+
+This demonstrates fundamental file-handling concepts while keeping the project lightweight and dependency-free.
+
+---
+
+# 🛠️ Technology Stack
+
+| Technology              | Purpose                        |
+| ----------------------- | ------------------------------ |
+| **C++17+**              | Core programming language      |
+| **STL**                 | Data structures and algorithms |
+| `vector`                | Dynamic collections            |
+| `map` / `unordered_map` | Fast record lookup             |
+| `queue`                 | Queue-based workflows          |
+| `fstream`               | Persistent file storage        |
+| **GCC / g++**           | Compilation                    |
+| **Make**                | Build automation               |
+| **Git**                 | Version control                |
+| **GitHub**              | Repository and collaboration   |
+
+---
+
+# 🚀 Getting Started
+
+## Prerequisites
+
+Install:
+
+* C++ compiler supporting C++17
+* GCC 9+ recommended
+* Git
+* `make` — optional
+
+Verify your compiler:
+
+```bash
+g++ --version
+```
+
+---
+
+## Clone the Repository
 
 ```bash
 git clone https://github.com/<your-username>/supermarket-management-system.git
 cd supermarket-management-system
 ```
 
-### Build
+---
 
-Using the Makefile:
+## Build with Make
 
 ```bash
 make
 ```
 
-Or directly with g++:
+---
+
+## Build Manually
+
+### Linux / macOS
 
 ```bash
-g++ -std=c++17 -Wall -o sms src/main.cpp src/models/*.cpp src/inventory/*.cpp src/billing/*.cpp src/loyalty/*.cpp src/suppliers/*.cpp src/reports/*.cpp src/auth/*.cpp src/storage/*.cpp
+g++ -std=c++17 -Wall -Wextra \
+-o sms \
+src/main.cpp \
+src/models/*.cpp \
+src/inventory/*.cpp \
+src/billing/*.cpp \
+src/loyalty/*.cpp \
+src/suppliers/*.cpp \
+src/reports/*.cpp \
+src/auth/*.cpp \
+src/storage/*.cpp
 ```
 
-### Run
+### Windows PowerShell
+
+```powershell
+g++ -std=c++17 -Wall -Wextra `
+-o sms.exe `
+src/main.cpp `
+src/models/*.cpp `
+src/inventory/*.cpp `
+src/billing/*.cpp `
+src/loyalty/*.cpp `
+src/suppliers/*.cpp `
+src/reports/*.cpp `
+src/auth/*.cpp `
+src/storage/*.cpp
+```
+
+---
+
+## ▶️ Run
+
+### Linux / macOS
 
 ```bash
 ./sms
 ```
 
-On first run, the system initializes empty data files under `data/`. Sample seed data for testing can be placed in `tests/sample-data/`.
+### Windows
 
-## Usage
+```powershell
+.\sms.exe
+```
 
-The application runs as a menu-driven console interface. After logging in, the menu shown depends on the authenticated role:
+On first execution, the application initializes the required data files.
 
-- **Admin** — full access: user management, pricing, suppliers, reports, audit log
-- **Manager** — inventory, purchase orders, discounts, reports, refund approval
-- **Cashier** — checkout, returns (within limit), stock lookup
+---
 
-## Development Workflow
+# 📊 Functional Modules
 
-- Create a feature branch per module: `git checkout -b feature/inventory-module`
-- Keep commits scoped to one logical change
-- Open a pull request into `main` for review before merging
-- Update this README and `docs/proposal.md` if the design changes
+```text
+                       SUPERMARKET MANAGEMENT SYSTEM
+                                    │
+       ┌────────────────────────────┼────────────────────────────┐
+       │                            │                            │
+       ▼                            ▼                            ▼
+   AUTHENTICATION              INVENTORY                    BILLING
+       │                            │                            │
+       │                       ┌────┴────┐                 ┌─────┴─────┐
+       │                       │         │                 │           │
+       ▼                       ▼         ▼                 ▼           ▼
+    Admin                  Products   Expiry            Checkout    Returns
+    Manager                    │       Monitor               │           │
+    Cashier                    │                            │           │
+                               ▼                            ▼           ▼
+                          Low Stock                   Transactions   Refunds
+                               │                            │
+                               ▼                            ▼
+                         PURCHASE ORDERS              LOYALTY
+                               │                            │
+                               └──────────────┬─────────────┘
+                                              ▼
+                                           REPORTS
+                                              │
+                                              ▼
+                                      PERSISTENT STORAGE
+```
 
-## Team
+---
 
-| Name | Roll Number | Role |
-|---|---|---|
-| _TBD_ | _TBD_ | _TBD_ |
-| _TBD_ | _TBD_ | _TBD_ |
+# 📈 Reporting
 
-## Course Context
+The reporting subsystem provides information derived from transaction records rather than requiring separate manual data entry.
 
-- **Course**: Programming Fundamentals, FAST–NUCES Karachi
-- **Submission deadline**: September 20, 2026
+### Supported Reports
 
-## License
+* Daily sales
+* Weekly sales
+* Monthly sales
+* Top-selling products
+* Slow-moving products
+* Revenue summaries
 
-This project is developed for academic purposes as part of a university course assignment.
+This keeps reporting connected to the same transaction data used by checkout.
+
+---
+
+# 🔄 Returns & Inventory Integrity
+
+Returns are linked to the original transaction rather than being treated as independent operations.
+
+```text
+Original Transaction
+        │
+        ▼
+Return Request
+        │
+        ▼
+Transaction Verification
+        │
+        ├───────────────┐
+        ▼               ▼
+Inventory Restore   Loyalty Reversal
+        │               │
+        └───────┬───────┘
+                ▼
+          Refund Record
+```
+
+This prevents the inventory, financial, and loyalty systems from drifting apart.
+
+---
+
+# 🧪 Testing
+
+Testing is organized under:
+
+```text
+tests/
+└── sample-data/
+```
+
+Test scenarios include:
+
+* Valid and invalid login
+* Role restrictions
+* Product creation
+* Product updates
+* Product deletion
+* Stock validation
+* Checkout
+* Discount application
+* Tax calculation
+* Loyalty point issuance
+* Returns
+* Refunds
+* Low-stock alerts
+* Purchase-order generation
+* Report generation
+* File persistence
+
+---
+
+# 🌳 Development Workflow
+
+The project follows a modular Git workflow.
+
+```bash
+git checkout -b feature/inventory-module
+```
+
+Make changes, test them, then:
+
+```bash
+git add .
+git commit -m "Add inventory management module"
+git push origin feature/inventory-module
+```
+
+Feature branches should be merged into `main` through review.
+
+### Recommended Commit Style
+
+```text
+feat: add product search
+feat: implement checkout cart
+fix: correct loyalty point calculation
+fix: prevent negative inventory
+docs: update project proposal
+refactor: separate file persistence
+test: add return transaction cases
+```
+
+---
+
+# 📚 Course Context
+
+| Field            | Details                         |
+| ---------------- | ------------------------------- |
+| **University**   | FAST–NUCES                      |
+| **Campus**       | Karachi                         |
+| **Course**       | Programming Fundamentals        |
+| **Language**     | C++                             |
+| **Standard**     | C++17+                          |
+| **Project Type** | Console-Based Management System |
+| **Submission**   | September 20, 2026              |
+
+The project is designed to demonstrate practical application of Programming Fundamentals concepts including:
+
+* Variables and data types
+* Conditional statements
+* Loops
+* Functions
+* Arrays / STL containers
+* Structures and classes
+* Object-oriented programming
+* Inheritance
+* File handling
+* Searching and sorting
+* Modular programming
+* Basic software architecture
+
+---
+
+# 📋 Project Proposal
+
+The repository contains the project's formal proposal and design documentation.
+
+📄 **[Read the Complete Project Proposal →](docs/proposal.md)**
+
+The proposal covers:
+
+* Problem statement
+* Motivation
+* Objectives
+* Proposed solution
+* Functional requirements
+* Non-functional requirements
+* System modules
+* User roles
+* Data design
+* Expected outcomes
+* Project scope
+
+> **The proposal and implementation are intended to remain synchronized as development progresses.**
+
+---
+
+# 👨‍💻 Team
+
+| Name    | Roll Number | Responsibility              |
+| ------- | ----------- | --------------------------- |
+| **TBD** | **TBD**     | Project Lead / Development  |
+| **TBD** | **TBD**     | Development                 |
+| **TBD** | **TBD**     | Development / Documentation |
+
+---
+
+# 🗺️ Roadmap
+
+### Phase 1 — Foundation
+
+* [x] Repository setup
+* [x] Project architecture
+* [x] Proposal
+* [ ] Core data models
+* [ ] File persistence
+
+### Phase 2 — Core Operations
+
+* [ ] Authentication
+* [ ] Role-based access
+* [ ] Inventory management
+* [ ] Product search
+* [ ] Supplier management
+
+### Phase 3 — Transactions
+
+* [ ] Shopping cart
+* [ ] Checkout
+* [ ] Billing
+* [ ] Discounts
+* [ ] Returns
+* [ ] Refunds
+
+### Phase 4 — Intelligence & Reporting
+
+* [ ] Loyalty system
+* [ ] Low-stock detection
+* [ ] Purchase-order generation
+* [ ] Sales reports
+* [ ] Audit logging
+
+### Phase 5 — Finalization
+
+* [ ] Full integration
+* [ ] Testing
+* [ ] Sample data
+* [ ] Documentation
+* [ ] Final demonstration
+
+---
+
+# 📸 Demo
+
+> Screenshots and demonstration material will be added as the implementation progresses.
+
+Recommended demo coverage:
+
+```text
+Login
+  ↓
+Dashboard
+  ↓
+Inventory
+  ↓
+Checkout
+  ↓
+Receipt
+  ↓
+Inventory Update
+  ↓
+Loyalty Update
+  ↓
+Sales Report
+```
+
+---
+
+# 🎓 Academic Purpose
+
+This project is developed for academic purposes as part of the **Programming Fundamentals course at FAST–NUCES Karachi**.
+
+It is intended to demonstrate how fundamental programming concepts can be combined to create a complete, interconnected software system rather than isolated programming exercises.
+
+---
+
+<div align="center">
+
+## 🛒 Supermarket Management System
+
+**Built with C++ • Designed at FAST–NUCES Karachi**
+
+<br>
+
+**Programming Fundamentals — 2026**
+
+<br>
+
+⭐ If this repository helped you understand the project, consider starring it.
+
+</div>
